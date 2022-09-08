@@ -1,0 +1,14 @@
+{
+    "id": "{79BB840E-65C1-06E0-E1DD-BAFEFC514848}",
+    "name": "Alarmzonensteuerung",
+    "type": 3,
+    "vendor": "UB",
+    "aliases": [
+        "Alarmzonensteuerung"
+    ],
+    "url": "https://github.com/ubittner/_Alarmzone/tree/main/Alarmzonensteuerung",
+    "parentRequirements": [],
+    "childRequirements": [],
+    "implemented": [],
+    "prefix": "AZST"
+}

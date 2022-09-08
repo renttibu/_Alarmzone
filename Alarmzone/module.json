@@ -1,0 +1,14 @@
+{
+    "id": "{127AB08D-CD10-801D-D419-442CDE6E5C61}",
+    "name": "Alarmzone",
+    "type": 3,
+    "vendor": "UB",
+    "aliases": [
+        "Alarmzone"
+    ],
+    "url": "https://github.com/ubittner/_Alarmzone/tree/main/Alarmzone",
+    "parentRequirements": [],
+    "childRequirements": [],
+    "implemented": [],
+    "prefix": "AZ"
+}
