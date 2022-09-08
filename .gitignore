@@ -2,5 +2,4 @@
 .idea/
 .phpunit.*
 .php_cs.cache
-.gitattributes
 docs/developer.txt
