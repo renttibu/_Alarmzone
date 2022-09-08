@@ -27,7 +27,7 @@ class Alarmzone extends IPSModule
     use AZ_MotionDetectors;
     use AZ_Notification;
 
-    // Constants
+    //Constants
     private const MODULE_NAME = 'Alarmzone';
     private const MODULE_PREFIX = 'AZ';
     private const MODULE_VERSION = '7.0-1, 08.09.2022';
