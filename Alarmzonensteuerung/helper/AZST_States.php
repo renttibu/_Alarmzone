@@ -83,7 +83,6 @@ trait AZST_States
                 $amount++;
                 $id = $variable['ID'];
                 if ($id > 1 && @IPS_ObjectExists($id)) { //0 = main category, 1 = none
-                    $result = true;
                     $value = GetValue($variable['ID']);
                     switch ($value) {
                         case 0: //Disarmed
@@ -106,31 +105,34 @@ trait AZST_States
                 }
             }
         }
-        //individual protection mode
-        $mode = 4;
-        $stateText = 'Individualschutz, alle Alarmzonen unterschiedlich';
-        if ($zoneStates['Disarmed'] == $amount) {
-            //All zones are off
-            $mode = 0;
-            $stateText = 'Alle Alarmzonen unscharf';
+        if ($amount >= 1) {
+            $result = true;
+            //individual protection mode
+            $mode = 4;
+            $stateText = 'Individualschutz, alle Alarmzonen unterschiedlich';
+            if ($zoneStates['Disarmed'] == $amount) {
+                //All zones are off
+                $mode = 0;
+                $stateText = 'Alle Alarmzonen unscharf';
+            }
+            if ($zoneStates['fullProtectionMode'] == $amount) {
+                //Only full protection mode is enabled
+                $mode = 1;
+                $stateText = 'Vollschutz aller Alarmzonen';
+            }
+            if ($zoneStates['hullProtectionMode'] == $amount) {
+                //Only hull protection mode is enabled
+                $mode = 2;
+                $stateText = 'Hüllschutz aller Alarmzonen';
+            }
+            if ($zoneStates['partialProtectionMode'] == $amount) {
+                //Only partial protection mode is enabled
+                $mode = 3;
+                $stateText = 'Teilschutz aller Alarmzonen';
+            }
+            $this->SetValue('Mode', $mode);
+            $this->SendDebug(__FUNCTION__, 'Modus: ' . $mode . ' = ' . $stateText, 0);
         }
-        if ($zoneStates['fullProtectionMode'] == $amount) {
-            //Only full protection mode is enabled
-            $mode = 1;
-            $stateText = 'Vollschutz aller Alarmzonen';
-        }
-        if ($zoneStates['hullProtectionMode'] == $amount) {
-            //Only hull protection mode is enabled
-            $mode = 2;
-            $stateText = 'Hüllschutz aller Alarmzonen';
-        }
-        if ($zoneStates['partialProtectionMode'] == $amount) {
-            //Only partial protection mode is enabled
-            $mode = 3;
-            $stateText = 'Teilschutz aller Alarmzonen';
-        }
-        $this->SetValue('Mode', $mode);
-        $this->SendDebug(__FUNCTION__, 'Modus: ' . $mode . ' = ' . $stateText, 0);
         return $result;
     }
 

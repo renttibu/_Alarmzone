@@ -1503,7 +1503,6 @@ trait AZ_Config
                             'visible'  => $enableButton,
                             'objectID' => $id
                         ]
-
                     ]
                 ]
             ]
